@@ -2,3 +2,5 @@ node_modules/
 dist/
 .env
 logs/
+github_sunny
+github_sunny.pub
