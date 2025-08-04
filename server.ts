@@ -1,20 +1,22 @@
 import express, { NextFunction,Request,Response } from "express";
 import {serverConfig} from "./config";
 import v1Router from "./routers/v1/index.router";
-import middleware1 from "./middlewares/middleware1.middleware";
-import middleware2 from "./middlewares/middleware2.middleware";
+import {genericErrorHandler} from "./middlewares/error.middleware"
+import logger from "./config/logger.config";
+import attachCorelationMiddleware from "./middlewares/corelation.middleware";
 
 const app=express();
+app.use(attachCorelationMiddleware);
+app.use(express.json());
 app.use("/api/v1",v1Router)
 //load all environment variable
 
 
-app.use(middleware1);
-app.use(middleware2)
+app.use(genericErrorHandler);
 
 
 app.listen(serverConfig.PORT,()=>{
-    console.log(`Server is running on port:${serverConfig.PORT}`);
+    logger.error(`Server is running on port:${serverConfig.PORT}`,{user:"sunny"});
     console.log("Press Ctrl+C to stop server....");
       
 })
