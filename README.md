@@ -1,6 +1,6 @@
 ## Steps to setup project
 
 1.clone the repo
-...
+```
 git clone https://github.com/SunnyKumar333/Typescript-Express-Starter.git
-...
+```
