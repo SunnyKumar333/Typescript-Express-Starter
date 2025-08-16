@@ -1,0 +1,8 @@
+const path=require("path");
+
+module.exports={
+    seedersPath:"./db/seeders",
+    modelsPath:"./db/models",
+    migrationsPath:"./db/migrations",
+    config:"./config/sequalize.config.js"
+}
